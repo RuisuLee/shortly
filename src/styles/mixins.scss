@@ -1,0 +1,53 @@
+@import "./variables.scss";
+
+@mixin element($element) {
+    &__#{$element} {
+        @content;
+    }
+}
+
+@mixin modifier($modifier) {
+    &--#{$modifier} {
+        @content;
+    }
+}
+
+@mixin devices($breakpoint) {
+    @if $breakpoint == mobile {
+        @media only screen and (min-width: $small-screen) and (max-width: $large-screen) {
+            @content;
+        }
+    }
+
+    @if $breakpoint == desktop {
+        @media only screen and (min-width: $large-screen) {
+            @content;
+        }
+    }
+}
+
+@mixin header-link {
+    text-decoration: none;
+    font-size: $font-size;
+    color: $grayish-violet;
+    font-weight: bold;
+    margin-right: 30px;
+
+    &:hover {
+        color: $very-dark-violet;
+    }
+}
+
+@mixin main-button {
+    cursor: pointer;
+    background-color: $cyan;
+    color: $white;
+    font-weight: bold;
+    border-radius: 30px;
+    width: 120px;
+    height: 40px;
+
+    &:hover {
+        background-color: $hovered-cyan;
+    }
+}

@@ -1,0 +1,57 @@
+@import "/src/styles/mixins.scss";
+@import "/src/styles/variables.scss";
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 100px;
+
+    @include devices(mobile) {
+        padding: 20px 40px;
+    }
+
+    @include element(nav) {
+        @include devices(mobile) {
+            display: none;
+        }
+
+        flex-grow: 1;
+        margin-left: 40px;
+
+        & a {
+            @include header-link;
+        }
+    }
+
+    @include element(buttons-wrapper) {
+        @include devices(mobile) {
+            display: none;
+        }
+    }
+
+    @include element(button) {
+        @include modifier(login) {
+            cursor: pointer;
+            background: none;
+
+            @include header-link;
+        }
+
+        @include modifier(sign-up) {
+            @include main-button;
+        }
+
+        @include modifier(menu) {
+            background-image: url(/src/assets/hamburger-menu.svg);
+            background-size: cover;
+            background-color: #fff;
+            width: 30px;
+            height: 30px;
+
+            @include devices(desktop) {
+                display: none;
+            }
+        }
+    }
+}

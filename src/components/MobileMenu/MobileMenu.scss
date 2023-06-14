@@ -1,0 +1,56 @@
+@import "/src/styles/mixins.scss";
+@import "/src/styles/variables.scss";
+
+.mobile-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    box-sizing: border-box;
+    width: 90%;
+    background-color: $dark-violet;
+    z-index: 2;
+    border-radius: 12px;
+    position: fixed;
+    top: 60px;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    @include element(nav) {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-bottom: 1px solid $grayish-violet;
+
+        & a {
+            @include header-link;
+            margin-right: 0;
+            color: $white;
+            margin-bottom: 30px;
+        }
+    }
+
+    @include element(buttons-wrapper) {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    @include element(button) {
+        @include modifier(login) {
+            @include header-link;
+
+            cursor: pointer;
+            background: none;
+            margin: 30px 0;
+            color: $white;
+        }
+
+        @include modifier(sign-up) {
+            @include main-button;
+            width: 100%;
+        }
+    }
+}
