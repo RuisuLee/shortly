@@ -1,0 +1,65 @@
+@import "/src/styles/mixins.scss";
+@import "/src/styles/variables.scss";
+
+.about {
+    min-height: 450px;
+    padding: 150px 150px 0px;
+    background: url(/src/assets/illustration-working.svg) no-repeat;
+    background-size: 50% 100%;
+    background-position: 105% 0%;
+
+    @include devices(mobile) {
+        background: none;
+        text-align: center;
+        padding: 0;
+    }
+
+    @include element(image) {
+        display: none;
+
+        @include devices(mobile) {
+            display: block;
+            height: 20em;
+            width: 100%;
+            background: url(/src/assets/illustration-working.svg) no-repeat;
+            background-size: 90% 100%;
+            background-position: 350% 0px;
+        }
+    }
+
+    @include element(title) {
+        font-size: 70px;
+        width: 60%;
+
+        @include devices(mobile) {
+            font-size: 38px;
+            width: 100%;
+            padding: 0 10px;
+            box-sizing: border-box;
+        }
+    }
+
+    @include element(description) {
+        width: 40%;
+        font-size: $font-size;
+        color: $gray;
+
+        @include devices(mobile) {
+            width: 100%;
+            font-size: 16px;
+            padding: 0 10px;
+            box-sizing: border-box;
+        }
+    }
+
+    @include element(button) {
+        @include main-button;
+        width: 200px;
+        height: 50px;
+        margin-top: 30px;
+
+        @include devices(mobile) {
+            margin-top: 20px;
+        }
+    }
+}
