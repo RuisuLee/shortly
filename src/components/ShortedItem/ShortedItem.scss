@@ -10,25 +10,58 @@
     justify-content: space-between;
     display: flex;
 
+    @include devices(mobile) {
+        flex-direction: column;
+        justify-content: center;
+        height: 150px;
+        padding: 0 20px;
+    }
+
     @include element(original-link) {
         font-size: 20px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        @include devices(mobile) {
+            width: 100%;
+            padding: 0 20px 10px 20px;
+            font-size: 16px;
+            border-bottom: 1px solid $gray;
+        }
     }
 
     @include element(shorted-section) {
         align-items: center;
         display: flex;
+
+        @include devices(mobile) {
+            flex-direction: column;
+            align-self: flex-start;
+            width: 100%;
+            margin-top: 10px;
+        }
     }
 
     @include element(shorted-link) {
         font-size: 20px;
         color: $cyan;
         margin-right: 20px;
+
+        @include devices(mobile) {
+            align-self: flex-start;
+            margin-bottom: 5px;
+            margin-right: 0;
+        }
     }
 
     @include element(copy) {
         @include main-button;
 
         border-radius: 8px;
+
+        @include devices(mobile) {
+            width: 100%;
+        }
 
         @include modifier(copied) {
             background-color: $dark-violet;

@@ -42,3 +42,20 @@ export const BOOST_TEXT = "Boost your links today";
 
 export const COPY = "Copy";
 export const COPIED = "Copied!";
+
+export const FOOTER_LINKS = [
+  {
+    title: "Features",
+    links: ["Link Shortening", "Branded Links", "Analytics"],
+  },
+  {
+    title: "Resources",
+    links: ["Blog", "Developers", "Support"],
+  },
+  {
+    title: "Company",
+    links: ["About", "Our Team", "Careers", "Contact"],
+  },
+];
+
+export const FOOTER_ICONS = ["facebook", "twitter", "pinterest", "instagram"];

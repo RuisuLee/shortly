@@ -1,0 +1,35 @@
+@import "/src/styles/mixins.scss";
+@import "/src/styles/variables.scss";
+
+.column {
+    @include devices(mobile) {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    @include element(title) {
+        font-size: 18px;
+        font-weight: bold;
+        color: $white;
+        margin-bottom: 20px;
+
+        @include devices(mobile) {
+            font-size: 16px;
+        }
+    }
+
+    @include element(link) {
+        font-size: 18px;
+        color: $grayish-violet;
+        margin-bottom: 10px;
+        cursor: pointer;
+
+        @include devices(mobile) {
+            font-size: 16px;
+        }
+
+        &:hover {
+            color: $cyan;
+        }
+    }
+}

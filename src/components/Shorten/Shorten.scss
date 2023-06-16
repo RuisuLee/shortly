@@ -96,3 +96,12 @@
         top: 60px;
     }
 }
+
+.shorted-items {
+    padding: 20px 150px;
+    background-color: $light-gray;
+
+    @include devices(mobile) {
+        padding: 20px 40px;
+    }
+}
