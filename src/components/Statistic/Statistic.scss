@@ -1,0 +1,75 @@
+@import "/src/styles/mixins.scss";
+@import "/src/styles/variables.scss";
+
+.statistic {
+    height: 800px;
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 150px 100px;
+    background-color: $light-gray;
+
+    @include devices(mobile) {
+        padding: 100px 10px 0px;
+        height: auto;
+    }
+
+    @include element(title) {
+        font-size: 46px;
+
+        @include devices(mobile) {
+            font-size: 38px;
+            text-align: center;
+        }
+    }
+
+    @include element(description) {
+        width: 40%;
+        text-align: center;
+        margin: 20px 0;
+        color: $grayish-violet;
+
+        @include devices(mobile) {
+            width: 100%;
+            font-size: 16px;
+            text-align: center;
+            padding: 0 10px;
+        }
+    }
+
+    @include element(cards) {
+        width: 100%;
+        height: 80%;
+        position: relative;
+        display: flex;
+        justify-content: space-around;
+
+        &::after {
+            content: "";
+            display: inline-block;
+            border: 5px solid $cyan;
+            width: 40%;
+            position: absolute;
+            top: 45%;
+
+            @include devices(mobile) {
+                width: 0;
+                height: 80%;
+                top: 0;
+            }
+        }
+
+        & .card:last-child {
+            margin-right: 0;
+        }
+
+        @include devices(mobile) {
+            margin-top: 60px;
+            height: auto;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}

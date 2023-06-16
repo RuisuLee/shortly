@@ -1,0 +1,93 @@
+@import "/src/styles/mixins.scss";
+@import "/src/styles/variables.scss";
+
+.card {
+    width: 350px;
+    height: 300px;
+    box-sizing: border-box;
+    padding: 0 20px;
+    border-radius: 8px;
+    background-color: #fff;
+    margin-right: 50px;
+    z-index: 2;
+
+    @include devices(mobile) {
+        width: 300px;
+        height: 290px;
+        margin-bottom: 100px;
+        margin-right: 0;
+    }
+
+    @include element(title) {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 20px;
+
+        @include devices(mobile) {
+            text-align: center;
+            font-size: 18px;
+        }
+    }
+
+    @include element(description) {
+        color: $grayish-violet;
+        font-size: $font-size;
+
+        @include devices(mobile) {
+            text-align: center;
+            font-size: 16px;
+        }
+    }
+
+    @include element(icon) {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        position: relative;
+        top: -45px;
+
+        @include devices(mobile) {
+            left: 32%;
+        }
+
+        @include modifier(brand-recognition) {
+            background: url(/src/assets/icon-brand-recognition.svg) no-repeat;
+            background-color: $dark-violet;
+            background-position: center;
+        }
+
+        @include modifier(detailed-records) {
+            background: url(/src/assets/icon-detailed-records.svg) no-repeat;
+            background-color: $dark-violet;
+            background-position: center;
+        }
+
+        @include modifier(fully-customizable) {
+            background: url(/src/assets/icon-fully-customizable.svg) no-repeat;
+            background-color: $dark-violet;
+            background-position: center;
+        }
+    }
+
+    @include modifier(brand-recognition) {
+        @include devices(mobile) {
+            align-self: center;
+        }
+    }
+
+    @include modifier(detailed-records) {
+        align-self: center;
+
+        @include devices(mobile) {
+            align-self: center;
+        }
+    }
+
+    @include modifier(fully-customizable) {
+        align-self: flex-end;
+
+        @include devices(mobile) {
+            align-self: center;
+        }
+    }
+}
