@@ -39,3 +39,6 @@ export const STATISTIC_DESCRIPTION =
   "Track how your links are performing across the web with our advanced statistics dashboard.";
 
 export const BOOST_TEXT = "Boost your links today";
+
+export const COPY = "Copy";
+export const COPIED = "Copied!";

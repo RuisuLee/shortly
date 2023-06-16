@@ -1,0 +1,41 @@
+@import "/src/styles/mixins.scss";
+@import "/src/styles/variables.scss";
+
+.shorted-item {
+    margin-top: 20px;
+    background-color: $white;
+    border-radius: 8px;
+    padding: 15px 25px;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+
+    @include element(original-link) {
+        font-size: 20px;
+    }
+
+    @include element(shorted-section) {
+        align-items: center;
+        display: flex;
+    }
+
+    @include element(shorted-link) {
+        font-size: 20px;
+        color: $cyan;
+        margin-right: 20px;
+    }
+
+    @include element(copy) {
+        @include main-button;
+
+        border-radius: 8px;
+
+        @include modifier(copied) {
+            background-color: $dark-violet;
+
+            &:hover {
+                background-color: $dark-violet;
+            }
+        }
+    }
+}
