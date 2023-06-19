@@ -3,11 +3,17 @@
 
 .footer {
     display: flex;
-    padding: 50px 150px;
+    padding: 50px 120px;
     justify-content: space-between;
     background-color: $very-dark-violet;
 
     @include devices(mobile) {
+        flex-direction: column;
+        align-items: center;
+        padding: 30px;
+    }
+
+    @include devices(tablet) {
         flex-direction: column;
         align-items: center;
         padding: 30px;
@@ -23,7 +29,7 @@
         display: flex;
         flex-grow: 1;
         justify-content: space-evenly;
-        margin-left: 200px;
+        margin-left: 110px;
 
         @include devices(mobile) {
             flex-direction: column;
@@ -31,6 +37,12 @@
             align-items: center;
             margin-left: 0;
             padding-bottom: 20px;
+        }
+
+        @include devices(tablet) {
+            margin-left: 0;
+            width: 100%;
+            padding: 20px 0;
         }
     }
 

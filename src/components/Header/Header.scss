@@ -5,27 +5,49 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 30px 150px;
+    padding: 30px 120px;
 
     @include devices(mobile) {
         padding: 20px 40px;
     }
 
-    @include element(nav) {
-        @include devices(mobile) {
-            display: none;
-        }
+    @include devices(tablet) {
+        padding: 30px 20px;
+    }
 
+    @include element(logo) {
+        @include devices(tablet) {
+            width: 90px;
+        }
+    }
+
+    @include element(nav) {
         flex-grow: 1;
         margin-left: 40px;
 
         & a {
             @include header-link;
+
+            @include devices(tablet) {
+                font-size: 16px;
+            }
+        }
+
+        @include devices(mobile) {
+            display: none;
+        }
+
+        @include devices(tablet) {
+            margin-left: 15px;
         }
     }
 
     @include element(buttons-wrapper) {
         @include devices(mobile) {
+            display: none;
+        }
+
+        @include devices(tablet) {
             display: none;
         }
     }
@@ -43,11 +65,11 @@
         }
 
         @include modifier(menu) {
+            width: 30px;
+            height: 30px;
             background-image: url(/src/assets/hamburger-menu.svg);
             background-size: cover;
             background-color: #fff;
-            width: 30px;
-            height: 30px;
 
             @include devices(desktop) {
                 display: none;

@@ -3,7 +3,7 @@
 
 .about {
     min-height: 450px;
-    padding: 150px 150px 0px;
+    padding: 120px 120px 0px;
     background: url(/src/assets/illustration-working.svg) no-repeat;
     background-size: 50% 100%;
     background-position: 105% 0%;
@@ -12,6 +12,14 @@
         background: none;
         text-align: center;
         padding: 0;
+    }
+
+    @include devices(tablet) {
+        min-height: 350px;
+        padding: 50px 20px 0px;
+        background: url(/src/assets/illustration-working.svg) no-repeat;
+        background-size: 80% 100%;
+        background-position: 230% 0%;
     }
 
     @include element(image) {
@@ -35,7 +43,11 @@
             font-size: 38px;
             width: 100%;
             padding: 0 10px;
-            box-sizing: border-box;
+        }
+
+        @include devices(tablet) {
+            font-size: 40px;
+            width: 70%;
         }
     }
 
@@ -48,7 +60,10 @@
             width: 100%;
             font-size: 16px;
             padding: 0 10px;
-            box-sizing: border-box;
+        }
+
+        @include devices(tablet) {
+            width: 50%;
         }
     }
 
@@ -60,6 +75,10 @@
 
         @include devices(mobile) {
             margin-top: 20px;
+        }
+
+        @include devices(tablet) {
+            width: 180px;
         }
     }
 }

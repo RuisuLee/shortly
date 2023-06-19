@@ -3,8 +3,7 @@
 
 .card {
     width: 350px;
-    height: 300px;
-    box-sizing: border-box;
+    height: 360px;
     padding: 0 20px;
     border-radius: 8px;
     background-color: #fff;
@@ -14,6 +13,13 @@
     @include devices(mobile) {
         width: 300px;
         height: 290px;
+        margin-bottom: 100px;
+        margin-right: 0;
+    }
+
+    @include devices(tablet) {
+        width: 400px;
+        height: 300px;
         margin-bottom: 100px;
         margin-right: 0;
     }
@@ -31,11 +37,10 @@
 
     @include element(description) {
         color: $grayish-violet;
-        font-size: $font-size;
+        font-size: 16px;
 
         @include devices(mobile) {
             text-align: center;
-            font-size: 16px;
         }
     }
 
@@ -48,6 +53,10 @@
 
         @include devices(mobile) {
             left: 32%;
+        }
+
+        @include devices(tablet) {
+            left: 37%;
         }
 
         @include modifier(brand-recognition) {
@@ -81,12 +90,20 @@
         @include devices(mobile) {
             align-self: center;
         }
+
+        @include devices(tablet) {
+            align-self: center;
+        }
     }
 
     @include modifier(fully-customizable) {
         align-self: flex-end;
 
         @include devices(mobile) {
+            align-self: center;
+        }
+
+        @include devices(tablet) {
             align-self: center;
         }
     }
