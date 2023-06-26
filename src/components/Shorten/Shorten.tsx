@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   SHORTEN_BUTTON_TEXT,
   SHORTEN_ERROR,
@@ -6,27 +6,34 @@ import {
 } from "../../constants";
 import "./Shorten.scss";
 import { ShortedItem } from "../ShortedItem/ShortedItem";
+import { RootState, useStoreDispatch } from "../../store";
+import { useSelector } from "react-redux";
+import { shortLink } from "../../store/links";
+import { changeShortenRef } from "../../store/shorten";
 
 export const Shorten = () => {
   const [url, setUrl] = useState("");
   const [touched, setTouched] = useState(false);
   const isUrlInvalid = url === "";
+  const shortenRef = useRef(null);
 
-  const urls = [
-    {
-      originalLink: "https://stackoverflow.com/questions",
-      shortedLink: "https://sm/sdf34",
-      copied: false,
-    },
-    {
-      originalLink: "https://stackoverflow.com/questions",
-      shortedLink: "https://sm/sdf34",
-      copied: true,
-    },
-  ];
+  const dispatch = useStoreDispatch();
+  const urls = useSelector((state: RootState) => state.links.links);
+
+  const onShortButtonSlick = () => {
+    if (isUrlInvalid) {
+      return;
+    }
+    dispatch(shortLink(url));
+  };
+
+  useEffect(() => {
+    dispatch(changeShortenRef(shortenRef));
+  }, []);
+
   return (
     <>
-      <section className="shorten__section">
+      <section ref={shortenRef} className="shorten__section">
         <div className="shorten__wrapper">
           <div className="shorten">
             <label htmlFor="shorten"></label>
@@ -52,16 +59,19 @@ export const Shorten = () => {
             className={`shorten__button ${
               isUrlInvalid && touched ? "shorten__button--invalid" : ""
             }`}
+            onClick={() => onShortButtonSlick()}
           >
             {SHORTEN_BUTTON_TEXT}
           </button>
         </div>
       </section>
-      <section className="shorted-items">
-        {urls.map((url, index) => (
-          <ShortedItem key={index} {...url} />
-        ))}
-      </section>
+      {urls.length !== 0 && (
+        <section className="shorted-items">
+          {urls.map((url) => (
+            <ShortedItem key={url.id} {...url} />
+          ))}
+        </section>
+      )}
     </>
   );
 };
