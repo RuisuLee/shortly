@@ -6,8 +6,10 @@ interface ILinksState {
   links: Array<Link>;
 }
 
+const initailLinks = localStorage.getItem("links");
+
 const initialState: ILinksState = {
-  links: [],
+  links: initailLinks ? JSON.parse(initailLinks) : [],
 };
 
 export const shortLink = createAsyncThunk(
@@ -26,6 +28,7 @@ const linksSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(shortLink.fulfilled, (state, action) => {
       state.links.push(action.payload);
+      localStorage.setItem("links", JSON.stringify(state.links));
     });
   },
 });
