@@ -40,7 +40,7 @@ The app will run on http://127.0.0.1:5173/
 - SCSS
 - Flexbox
 - [React](https://reactjs.org/) - JS library
-- [Effector](https://effector.dev/) - State manager
+- [Redux Toolkit](https://redux-toolkit.js.org/) - State manager
 
 ### Continued development
 
