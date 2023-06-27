@@ -20,7 +20,7 @@ export const Shorten = () => {
   const dispatch = useStoreDispatch();
   const urls = useSelector((state: RootState) => state.links.links);
 
-  const onShortButtonSlick = () => {
+  const onShortButtonClick = () => {
     if (isUrlInvalid) {
       return;
     }
@@ -59,7 +59,7 @@ export const Shorten = () => {
             className={`shorten__button ${
               isUrlInvalid && touched ? "shorten__button--invalid" : ""
             }`}
-            onClick={() => onShortButtonSlick()}
+            onClick={() => onShortButtonClick()}
           >
             {SHORTEN_BUTTON_TEXT}
           </button>
